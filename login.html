@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="container">
+    <form id="loginForm" class="form-box">
+      <h2>Login</h2>
+      <input type="email" id="emailLogin" placeholder="Enter your email" required>
+      <input type="password" id="passwordLogin" placeholder="Enter your password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const emailLogin = document.getElementById('emailLogin').value;
+      const passwordLogin = document.getElementById('passwordLogin').value;
+      const storedEmail = localStorage.getItem('userEmail');
+      const storedPassword = localStorage.getItem('userPassword');
+
+      if (emailLogin === storedEmail && passwordLogin === storedPassword) {
+        alert('Login successful!');
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Incorrect credentials. Try again.');
+      }
+    });
+  </script>
+</body>
+</html>

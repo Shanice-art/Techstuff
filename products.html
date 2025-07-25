@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TechVerse | Products</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === Reset & Base === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* === Navigation === */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+
+    .topbar h1 {
+      color: #00c6ff;
+      font-size: 1.8em;
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-bar a:hover,
+    .nav-bar a.active {
+      color: #00c6ff;
+      text-decoration: underline;
+    }
+
+    .cart-icon {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #00c6ff;
+      background: #222;
+      padding: 8px 16px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      margin-left: auto;
+    }
+
+    #cart-count {
+      margin-left: 8px;
+      background: #00c6ff;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.9em;
+    }
+
+    /* === Hero Section === */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #00c6ff;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    /* === Product Grid === */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .product-card {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card h3 {
+      color: #00c6ff;
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .product-card button {
+      padding: 10px 20px;
+      background: #00c6ff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: #0072ff;
+    }
+
+    .cart-message {
+      margin-top: 8px;
+      font-size: 0.9em;
+      font-weight: bold;
+      color: #00c6ff;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <h1>TechVerse</h1>
+    <nav class="nav-bar">
+      <a href="home.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="deals.html">Deals</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+    <div class="cart-icon">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Choose Your Gear ⚙️</h2>
+    <p>Click a product to add it to your cart</p>
+  </section>
+
+  <section class="product-grid">
+    <!-- Repeat cards with unique product names -->
+    <div class="product-card">
+      <h3>Alienware X17</h3>
+      <p>R39,999</p>
+      <button onclick="addToCart('Alienware X17')">Add to Cart</button>
+      <p class="cart-message" id="Alienware X17-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Galaxy Z Fold</h3>
+      <p>R24,999</p>
+      <button onclick="addToCart('Galaxy Z Fold')">Add to Cart</button>
+      <p class="cart-message" id="Galaxy Z Fold-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Pixel Watch 2</h3>
+      <p>R5,499</p>
+      <button onclick="addToCart('Pixel Watch 2')">Add to Cart</button>
+      <p class="cart-message" id="Pixel Watch 2-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>MacBook Pro M2</h3>
+      <p>R29,999</p>
+      <button onclick="addToCart('MacBook Pro M2')">Add to Cart</button>
+      <p class="cart-message" id="MacBook Pro M2-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>PS5 Console</h3>
+      <p>R10,999</p>
+      <button onclick="addToCart('PS5 Console')">Add to Cart</button>
+      <p class="cart-message" id="PS5 Console-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>DJI Mini Drone</h3>
+      <p>R6,899</p>
+      <button onclick="addToCart('DJI Mini Drone')">Add to Cart</button>
+      <p class="cart-message" id="DJI Mini Drone-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Oculus Quest 3</h3>
+      <p>R12,499</p>
+      <button onclick="addToCart('Oculus Quest 3')">Add to Cart</button>
+      <p class="cart-message" id="Oculus Quest 3-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Xbox Series X</h3>
+      <p>R9,999</p>
+      <button onclick="addToCart('Xbox Series X')">Add to Cart</button>
+      <p class="cart-message" id="Xbox Series X-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Logitech MX Master 3S</h3>
+      <p>R1,499</p>
+      <button onclick="addToCart('Logitech MX Master 3S')">Add to Cart</button>
+      <p class="cart-message" id="Logitech MX Master 3S-message"></p>
+    </div>
+    <div class="product-card">
+      <h3>Samsung Smart Monitor</h3>
+      <p>R5,799</p>
+      <button onclick="addToCart('Samsung Smart Monitor')">Add to Cart</button>
+      <p class="cart-message" id="Samsung Smart Monitor-message"></p>
+    </div>
+  </section>
+
+  <script>
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function addToCart(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      const messageElement = document.getElementById(productName + '-message');
+      messageElement.textContent = productName + " added to cart!";
+      updateCartCount();
+
+      setTimeout(() => {
+        messageElement.textContent = '';
+      }, 3000);
+    }
+
+    window.onload = updateCartCount;
+  </script>
+</body>
+</html>
